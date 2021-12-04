@@ -41,7 +41,7 @@ wd_dir <- getwd()
 
 # Load custom functions
 
-source("./GitHub Repo/mzwfe/syntax/00_define_functions.R")
+source("./GitHub Repo/mzwfe/code/00_define_functions.R")
 
 # Check correct R version, load groundhog package, and specify groundhog_day
 
@@ -1411,6 +1411,9 @@ sum(participant_raw_rest2$cbmCondition != participant_cln_rest2$participant_cbm_
 # Export merged, restricted item-level data ----
 # ---------------------------------------------------------------------------- #
 
-write.csv(merge_oa_rest2, file = "./data/intermediate/merge_oa_rest2.csv")
-write.csv(merge_rr_rest2, file = "./data/intermediate/merge_rr_rest2.csv")
-write.csv(participant_raw_rest2, file = "./data/intermediate/participant_raw_rest2.csv")
+write.csv(merge_oa_rest2, file = "./data/intermediate/merge_oa_rest2.csv", 
+          row.names = FALSE)
+write.csv(merge_rr_rest2, file = "./data/intermediate/merge_rr_rest2.csv", 
+          row.names = FALSE)
+write.csv(participant_raw_rest2, file = "./data/intermediate/participant_raw_rest2.csv", 
+          row.names = FALSE)
