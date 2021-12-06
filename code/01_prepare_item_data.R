@@ -613,7 +613,7 @@ length(setdiff(cln_participant_ids, sel_dat$participant_export_dao$participant_i
 
 
 
-# Define function to filter raw data based on participantIDs in clean data
+# Define function to filter raw data based on participant_ids in clean data
 
 filter_all_data <- function(dat, participant_ids) {
   output <- vector("list", length(dat))
@@ -819,18 +819,26 @@ report_dups_list(flt_dat)
 
 
 # dass21_as:
-#   - R34_cleaning_script says all duplicates are multiple screening attempts, assumes entries are in order by date, and keeps the last row
-# - Other script says "get the latest entry for each participant" (does so by most recent date for each session)
+#   - R34_cleaning_script says all duplicates are multiple screening attempts, 
+#     assumes entries are in order by date, and keeps the last row
+#   - Other script says "get the latest entry for each participant" (does so by 
+#     most recent date for each session)
 # 
 # oa:
 #   41 duplicated rows for table: oa
-# With these ' participant_id ':  8 14 17 432 425 16 421 445 485 539 532 623 620 683 598 712 674 582 669 745 625 684 723 644 627 659 590 731 708 701 727 687 662 541 719 597 710 640 552 435 600
+# With these ' participant_id ':  8 14 17 432 425 16 421 445 485 539 532 623 620 
+# 683 598 712 674 582 669 745 625 684 723 644 627 659 590 731 708 701 727 687 662 
+# 541 719 597 710 640 552 435 600
 # 
-# - R34_cleaning_script says all duplicates are for scam/test accounts, but none of these are test accounts based on Sonia's manually identified list of test accounts
-# - Other script says "get the latest entry for each participant" (does so by most recent date for each session) and notes that 1767 has duplicated values at PRE (not above) and then takes the sum to generate the score
+# - R34_cleaning_script says all duplicates are for scam/test accounts, but none 
+#   of these are test accounts based on Sonia's manually identified list of test accounts
+# - Other script says "get the latest entry for each participant" (does so by most 
+#   recent date for each session) and notes that 1767 has duplicated values at PRE 
+#   (not above) and then takes the sum to generate the score
 # 
 # ## Get the latest entry for each participant
-# oasis_analysis = oasis_analysis.sort_values(by="date").groupby(['participantID','session']).tail(1)
+# oasis_analysis = 
+#   oasis_analysis.sort_values(by="date").groupby(['participantID','session']).tail(1)
 # 
 # task_log:
 # - Multiple SUDS at Sessions 1, 3, 6, 8 with no "tag"
