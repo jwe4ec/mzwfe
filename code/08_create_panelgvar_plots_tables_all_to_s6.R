@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------- #
-# Create "panelgvar" Plots and Tables with Common Time Points to Session 6
+# Create "panelgvar" Plots and Tables with All Time Points to Session 6
 # Author: Jeremy W. Eberle
 # ---------------------------------------------------------------------------- #
 
@@ -42,7 +42,7 @@ groundhog.library(pkgs, groundhog_day)
 # Import results ----
 # ---------------------------------------------------------------------------- #
 
-analysis_r34 <- readRDS("./output/panelgvar_model_r34_un_prune_com_to_s6_results.RDS")
+analysis_r34 <- readRDS("./output/panelgvar_model_r34_all_to_s6_results.RDS")
 
 # TODO: Locate and import bootstrap results
 
@@ -115,7 +115,7 @@ qgraph(temporal_r34,
        esize = 10,
        edge.labels = FALSE,
        filetype = "pdf", 
-       filename = "./output/plots/panelgvar_com_to_s6_panelPDC_r34",
+       filename = "./output/plots/panelgvar_all_to_s6_panelPDC_r34",
        vTrans = 254, 
        loopRotation = loopRotation_r34,
        label.scale.equal = TRUE)
@@ -130,7 +130,7 @@ qgraph(contemporaneous_r34,
        esize = 10,
        edge.labels = FALSE,
        filetype = "pdf", 
-       filename = "./output/plots/panelgvar_com_to_s6_panelPCC_r34",
+       filename = "./output/plots/panelgvar_all_to_s6_panelPCC_r34",
        vTrans = 254, 
        loopRotation = loopRotation_r34,
        label.scale.equal = TRUE)
@@ -145,7 +145,7 @@ qgraph(between_r34,
        esize = 10,
        edge.labels = FALSE,
        filetype = "pdf", 
-       filename = "./output/plots/panelgvar_com_to_s6_panelBetween_r34",
+       filename = "./output/plots/panelgvar_all_to_s6_panelBetween_r34",
        vTrans = 254, 
        loopRotation = loopRotation_r34,
        label.scale.equal = TRUE)
@@ -194,15 +194,15 @@ btw_plot <- qgraph(between_r34,
 
 qgraph(tem_plot,
        filetype = "pdf",
-       filename = "./output/plots/panelgvar_circle_com_to_s6_panelPDC_r34")
+       filename = "./output/plots/panelgvar_circle_all_to_s6_panelPDC_r34")
 qgraph(con_plot,
        filetype = "pdf",
-       filename = "./output/plots/panelgvar_circle_com_to_s6_panelPCC_r34")
+       filename = "./output/plots/panelgvar_circle_all_to_s6_panelPCC_r34")
 qgraph(btw_plot,
        filetype = "pdf",
-       filename = "./output/plots/panelgvar_circle_com_to_s6_panelBetween_r34")
+       filename = "./output/plots/panelgvar_circle_all_to_s6_panelBetween_r34")
 
-pdf("./output/plots/panelgvar_circle_com_to_s6_multipanel.pdf", width = 12, height = 4)
+pdf("./output/plots/panelgvar_circle_all_to_s6_multipanel.pdf", width = 12, height = 4)
 layout(t(1:3))
 qgraph(tem_plot)
 box("figure")

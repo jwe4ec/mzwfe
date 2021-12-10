@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------- #
-# Run "panelgvar" Model with Common Time Points to Session 6
+# Run "panelgvar" Model with Common Time Points to Session 6 (SKIP)
 # Author: Jeremy W. Eberle
 # ---------------------------------------------------------------------------- #
 
@@ -15,6 +15,12 @@
 
 # http://psychonetrics.org/files/PNAWS2020lecture.html#panel-data-gvar
 # https://github.com/SachaEpskamp/SEM-code-examples/blob/master/psychonetrics/SHARE%20panel%20example/shareAnalysis.R
+
+# This script uses data only from Baseline, Session 3, and Session 6 (time points
+# at which all variables were assessed). However, it is more appropriate to use
+# all time points at which anxiety items were assessed. Thus, this script and
+# "create_panelgvar_plots_tables_com_to_s6.R" will be supplanted by scripts that
+# use all time points to Session 6.
 
 # ---------------------------------------------------------------------------- #
 # Set working directory ----
