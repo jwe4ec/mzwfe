@@ -86,7 +86,7 @@ between_r34 <- getmatrix(analysis_r34, "omega_zeta_between")
 
 # Specify node labels
 
-Labels_r34 <-  c("AF", "AS", "SA", "WI", "SI","NB", "PB")
+Labels_r34 <-  c("AF", "AS", "SA", "WI", "SI", "NB", "PB")
 
 # Specify layout and adjust to prevent overlaps
 
@@ -99,56 +99,9 @@ colnames(Layout_r34) <- c("x", "y")
 
 loopRotation_r34 <- rep(NA, 7)
 
-# Plot graphs
+# Compute max value
 
 max_r34 <- max(c(abs(temporal_r34), abs(contemporaneous_r34), abs(between_r34)))
-
-qgraph(temporal_r34, 
-       layout = Layout_r34,
-       theme = "colorblind",  
-       vsize = 13, 
-       mar = rep(5,4), 
-       asize = 8,
-       directed = TRUE, 
-       labels = Labels_r34, 
-       maximum = max_r34,
-       esize = 10,
-       edge.labels = FALSE,
-       filetype = "pdf", 
-       filename = "./output/plots/panelgvar_all_to_s6_panelPDC_r34",
-       vTrans = 254, 
-       loopRotation = loopRotation_r34,
-       label.scale.equal = TRUE)
-
-qgraph(contemporaneous_r34, 
-       layout = Layout_r34,
-       theme = "colorblind", 
-       vsize = 13, 
-       mar = rep(5,4), 
-       labels = Labels_r34, 
-       maximum = max_r34,
-       esize = 10,
-       edge.labels = FALSE,
-       filetype = "pdf", 
-       filename = "./output/plots/panelgvar_all_to_s6_panelPCC_r34",
-       vTrans = 254, 
-       loopRotation = loopRotation_r34,
-       label.scale.equal = TRUE)
-
-qgraph(between_r34, 
-       layout = Layout_r34,
-       theme = "colorblind", 
-       vsize = 13, 
-       mar = rep(5,4), 
-       labels = Labels_r34, 
-       maximum = max_r34,
-       esize = 10,
-       edge.labels = FALSE,
-       filetype = "pdf", 
-       filename = "./output/plots/panelgvar_all_to_s6_panelBetween_r34",
-       vTrans = 254, 
-       loopRotation = loopRotation_r34,
-       label.scale.equal = TRUE)
 
 # Plot circle graphs
 
@@ -160,7 +113,7 @@ tem_plot <- qgraph(temporal_r34,
                    labels = Labels_r34, 
                    theme = "colorblind",
                    asize = 7, 
-                   vsize = 10, 
+                   vsize = 14, 
                    label.cex = 1.1, 
                    mar = c(8,8,8,8), 
                    title = "Temporal", 
@@ -172,7 +125,7 @@ con_plot <- qgraph(contemporaneous_r34,
                    layout = "circle", 
                    labels = Labels_r34, 
                    theme = "colorblind",
-                   vsize =  10, 
+                   vsize = 14, 
                    label.cex = 1.1, 
                    mar = c(8,8,8,8), 
                    title = "Contemporaneous", 
@@ -184,7 +137,7 @@ btw_plot <- qgraph(between_r34,
                    layout = "circle", 
                    labels = Labels_r34, 
                    theme = "colorblind",
-                   vsize = 10, 
+                   vsize = 14, 
                    label.cex = 1.1, 
                    mar = c(8,8,8,8), 
                    title = "Between-Subjects", 
@@ -253,3 +206,18 @@ between_table_r34[between_table_r34 == 0] <- NA
 
 rownames(between_table_r34) <- colnames(between_table_r34) <- Labels_r34
 between_table_r34 <- round(between_table_r34, 2)
+
+# Export tables to CSV
+
+sink(file = "./output/tables/table_panelgvar_all_to_s6.csv")
+
+print(paste("Temporal:"))
+write.csv(temporal_table_r34)
+
+print(paste("Contemporaneous:"))
+write.csv(contemporaneous_table_r34)
+
+print(paste("Between-Subjects:"))
+write.csv(between_table_r34)
+
+sink()
