@@ -10,10 +10,10 @@
 # This script attempts to follow Epskamp's (2020) panel data example, with the 
 # exception that it treats all variables as observed rather than latent. However,
 # after results were obtained by running this script and "dlvm1_results.R", it
-# became clear that although the present script set the factor loadings to zero,
-# it did not set all residual variances to zero (see Epskamp, 2020). Thus, this
-# script and "dlvm1_results.R" will be supplanted by "panelgvar" scripts that
-# use the "panelgvar" wrapper function for "dlvm1" to achieve this.
+# became clear that although the present script set the factor loadings to an
+# identity matrix, it did not set all residual variances to zero (see Epskamp, 
+# 2020). Thus, this script and "dlvm1_results.R" will be supplanted by "panelgvar" 
+# scripts that use the "panelgvar" wrapper function for "dlvm1" to achieve this.
 
 # ---------------------------------------------------------------------------- #
 # Set working directory ----
